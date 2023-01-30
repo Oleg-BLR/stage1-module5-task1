@@ -1,6 +1,7 @@
 package com.epam.mjc;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.*;
@@ -9,12 +10,17 @@ import java.util.stream.Stream;
 
 public class InterfaceCreator {
 
-//    public static void main(String[] args) {
-//        InterfaceCreator interfaceCreator = new InterfaceCreator();
-//        List<String> listWithStrings = new ArrayList<>(List.of("47", "Word", "Case", "Human", "Price"));
-//        System.out.println(listWithStrings);
+    public static void main(String[] args) {
+        InterfaceCreator interfaceCreator = new InterfaceCreator();
+        List<String> listWithStrings = new ArrayList<>(List.of("47", "Word", "Case", "Human", "Price"));
+        System.out.println(listWithStrings);
+        interfaceCreator.isValuesStartWithUpperCase();
 //        System.out.println(interfaceCreator.isValuesStartWithUpperCase());
-//    }
+
+        List<Integer> listEvenIntegers =new ArrayList<>(Arrays.asList(48, 56, 100, 200, 222));
+        interfaceCreator.addEvenValuesAtTheEnd().accept(listEvenIntegers);
+
+    }
 
     public Predicate<List<String>> isValuesStartWithUpperCase() {
         System.out.println("Result of isValuesStartWithUpperCase Predicate Interface");
@@ -24,7 +30,7 @@ public class InterfaceCreator {
     }
 
     public Consumer<List<Integer>> addEvenValuesAtTheEnd() {
-
+        System.out.println("Result of addEvenValuesAtTheEnd");
         return listInt -> {
             listInt.addAll(listInt.stream().filter(i -> i % 2 == 0).collect(Collectors.toList()));
         };
